@@ -1,9 +1,13 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
-import Test from '../views/Test.vue'
-import Signup from '../views/Signup.vue'
-import Login from '../views/Login.vue'
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+import Home from '../views/Home.vue';
+import Test from '../views/Test.vue';
+import Signup from '../views/Signup.vue';
+import Login from '../views/Login.vue';
+import PostsIndex from '../views/PostsIndex.vue';
+import NewPost from '../views/NewPost.vue';
+import ShowPost from '../views/ShowPost.vue';
+
 
 Vue.use(VueRouter)
 
@@ -35,8 +39,23 @@ const routes = [
     path: '/login',
     name: 'Login',
     component: Login
+  },
+  {
+    path: '/posts',
+    name: 'PostsIndex',
+    component: PostsIndex
+  },
+  {
+    path: '/posts/new',
+    name: 'NewPost',
+    component: NewPost
+  },
+  {
+    path: '/posts/:id',
+    name: 'ShowPost',
+    component: ShowPost
   }
-]
+];
 
 const router = new VueRouter({
   mode: 'history',
