@@ -5,7 +5,9 @@
       <h3>{{ this.post.title }}</h3>
       <p>{{ this.post.body }}</p>
       <img v-bind:src="this.post.image" style="width:600px;">
-
+      <br>
+      <p><a v-bind:href="`/posts/${post.id}/edit`">Edit Post</a></p>
+      <p><button v-on:click="deletePost">Delete Post</button></p>
     </div>
   </div>
 </template>
@@ -33,6 +35,13 @@ export default {
       axios.get(`api/posts/${this.$route.params.id}`).then((response) => {
         console.log(response.data);
         this.post = response.data;
+      });
+    },
+    deletePost: function () {
+      console.log("deleting post...");
+      axios.delete(`api/posts/${this.$route.params.id}`).then((response) => {
+        console.log(response.data);
+        this.$router.push("/posts");
       });
     },
   },
